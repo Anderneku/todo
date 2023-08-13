@@ -3,10 +3,6 @@ import { useState } from "react"
 const Handler = () => {
     const [items, setItems] = useState([]);
     const [text, setText] = useState("");
-
-    const done = "done";
-    const all = "all";
-    const undone = "undone";
     
 
     const clickHandle = (event) =>{
