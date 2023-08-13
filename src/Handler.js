@@ -34,46 +34,46 @@ const Handler = () => {
 
 
     return (
-    <>
-    <h1 className="page-title">Todo App</h1>
+    <div className="handler">
+        <h1 className="page-title">Todo App</h1>
 
-    <form onSubmit={(event) => {clickHandle(event)}} className="input">
-        <input
-        className="input-box"
-        value={text} 
-        onChange={(event) => setText(event.target.value)} 
-        type="text" />
+        <form onSubmit={(event) => {clickHandle(event)}} className="input">
+            <input
+            className="input-box"
+            value={text} 
+            onChange={(event) => setText(event.target.value)} 
+            type="text" />
 
-        <button className="input-btn"><AiOutlinePlusCircle size={30} /></button>
-    </form>
+            <button className="input-btn"><AiOutlinePlusCircle size={30} /></button>
+        </form>
 
-    <div className="items-container">
-        <ul className="items-list-container">
-            {items.map((todo) => (
-                <li className="items-list-item" key={todo.id}>
-             
+        <div className="items-container">
+            <ul className="items-list-container">
+                {items.map((todo) => (
+                    <li className="items-list-item" key={todo.id}>
+                
 
-                    <label class="container">
+                        <label class="container">
+                            <input
+                            className="list-checkbox"
+                            checked={todo.completed} 
+                            onChange={() => toggleCheck(todo.id)}
+                            type="checkbox" />
+                            <span class="checkmark"></span>
+                        </label>
+
                         <input
-                        className="list-checkbox"
-                        checked={todo.completed} 
-                        onChange={() => toggleCheck(todo.id)}
-                        type="checkbox" />
-                        <span class="checkmark"></span>
-                    </label>
-
-                    <input
-                    className="list-input" 
-                    style={{textDecoration: `${todo.completed ? "line-through" : "none"}`}} defaultValue={todo.text}/>
+                        className="list-input" 
+                        style={{textDecoration: `${todo.completed ? "line-through" : "none"}`}} defaultValue={todo.text}/>
 
 
-                    <button onClick={() => deleteBtn(todo.id)} className="delete-btn"><AiOutlineDelete size={30} /></button>
-                </li>
-            ))}
-        </ul>
+                        <button onClick={() => deleteBtn(todo.id)} className="delete-btn"><AiOutlineDelete size={30} /></button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+
     </div>
-
-    </>
     )
 }
 
