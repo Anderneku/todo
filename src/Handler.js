@@ -1,10 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlinePlusCircle, AiOutlineDelete } from "react-icons/ai";
 
 const Handler = () => {
     const [items, setItems] = useState([]);
     const [text, setText] = useState("");
+
+    useEffect(() =>{
+        const data = localStorage.getItem("ITEMS_TODO_LIST");
+        if (data !== null) {
+            setItems(currentItems =>{
+                if (currentItems === JSON.parse(data)){
+                    return [ ...JSON.parse(data)]
+                } else{
+                    return [
+                        ...currentItems,
+                        ...JSON.parse(data)
+                    ]
+                }
+            })
+        }else{
+            return
+        }
+            
+    }, [])
     
+    useEffect(() => {
+        localStorage.setItem("ITEMS_TODO_LIST", JSON.stringify(items));
+    }, [items])
 
     const clickHandle = (event) =>{
         event.preventDefault();
@@ -39,12 +61,13 @@ const Handler = () => {
 
         <form onSubmit={(event) => {clickHandle(event)}} className="input">
             <input
+            title="input-box"
             className="input-box"
             value={text} 
             onChange={(event) => setText(event.target.value)} 
             type="text" />
 
-            <button className="input-btn"><AiOutlinePlusCircle size={30} /></button>
+            <button title="add" className="input-btn"><AiOutlinePlusCircle size={30} /></button>
         </form>
 
         <div className="items-container">
@@ -55,6 +78,7 @@ const Handler = () => {
 
                         <label class="container">
                             <input
+                            title="list-checkbox"
                             className="list-checkbox"
                             checked={todo.completed} 
                             onChange={() => toggleCheck(todo.id)}
@@ -63,11 +87,12 @@ const Handler = () => {
                         </label>
 
                         <input
+                        title="list-input"
                         className="list-input" 
                         style={{textDecoration: `${todo.completed ? "line-through" : "none"}`}} defaultValue={todo.text}/>
 
 
-                        <button onClick={() => deleteBtn(todo.id)} className="delete-btn"><AiOutlineDelete size={30} /></button>
+                        <button title="delete-btn" onClick={() => deleteBtn(todo.id)} className="delete-btn"><AiOutlineDelete size={30} /></button>
                     </li>
                 ))}
             </ul>
