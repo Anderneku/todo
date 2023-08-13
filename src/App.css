@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: 'DM Sans', sans-serif;
+}
+
+.page-title{
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 3em;
+}
+
+
+.input{
+  display: flex;
+  gap: 20px;
+  text-align: center;
+  justify-content: center;
+}
+
+.input-box{
+  width: 580px;
+  height: 50px;
+  font-size: 1.5em;
+}
+
+.input-btn{
+  width: 60px;
+  cursor: pointer;
+}
+
+.items-container{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.items-list-container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style-type: none;
+}
+
+.items-list-item{
+  align-items: center;
+  border: 2px solid black;
+  width: 660px;
+  display: flex;
+  gap: 20px;
+  height: 60px;
+}
+
+.list-checkbox{
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  margin-left: 10px;  
+}
+
+.delete-btn{
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
+.list-input{
+  height: 40px;
+  font-size: 20px;
+  width: 80%;
+  border: none;
+  outline: none;
+  user-select: none;
+  scrollbar-3dlight-color: black;
+}
