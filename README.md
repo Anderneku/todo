@@ -1,4 +1,4 @@
 # React Programming
 
 
-Stuping simple ToDo app in React
+Stupid simple ToDo app in React
