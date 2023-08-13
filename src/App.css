@@ -39,6 +39,7 @@ body{
   background: none;
   color: white;
   box-shadow: 0 8px 8px 0 #020202a8;
+  font-weight: bold;
 }
 
 .input-btn{
