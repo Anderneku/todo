@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState } from "react";
+import { AiOutlinePlusCircle, AiOutlineDelete } from "react-icons/ai";
 
 const Handler = () => {
     const [items, setItems] = useState([]);
@@ -43,22 +44,30 @@ const Handler = () => {
         onChange={(event) => setText(event.target.value)} 
         type="text" />
 
-        <button className="input-btn">Add</button>
+        <button className="input-btn"><AiOutlinePlusCircle size={30} /></button>
     </form>
 
     <div className="items-container">
         <ul className="items-list-container">
             {items.map((todo) => (
                 <li className="items-list-item" key={todo.id}>
-                    <input
-                    className="list-checkbox"
-                    checked={todo.completed} 
-                    onChange={() => toggleCheck(todo.id)}
-                    type="checkbox"/>
+             
+
+                    <label class="container">
+                        <input
+                        className="list-checkbox"
+                        checked={todo.completed} 
+                        onChange={() => toggleCheck(todo.id)}
+                        type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+
                     <input
                     className="list-input" 
                     style={{textDecoration: `${todo.completed ? "line-through" : "none"}`}} defaultValue={todo.text}/>
-                    <button onClick={() => deleteBtn(todo.id)} className="delete-btn">X</button>
+
+
+                    <button onClick={() => deleteBtn(todo.id)} className="delete-btn"><AiOutlineDelete size={30} /></button>
                 </li>
             ))}
         </ul>
